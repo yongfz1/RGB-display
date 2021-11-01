@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simple matrix in BayerRG layout of a 6x12 image with all red pixels
+I = np.uint8([
+    255, 0, 255, 0, 255, 0, 
+    0, 0, 0, 0, 0, 0,
+    255, 0, 255, 0, 255, 0,
+    0, 0, 0, 0, 0, 0,
+    255, 0, 255, 0, 255, 0,
+    0, 0, 0, 0, 0, 0,
+    255, 0, 255, 0, 255, 0,
+    0, 0, 0, 0, 0, 0,
+    255, 0, 255, 0, 255, 0,
+    0, 0, 0, 0, 0, 0,
+    255, 0, 255, 0, 255, 0,
+    0, 0, 0, 0, 0, 0
+          ]).reshape(12, 6)
+
+J = cv2.cvtColor(I, cv2.COLOR_BayerRG2RGB)
